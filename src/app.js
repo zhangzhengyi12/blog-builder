@@ -14,9 +14,9 @@ app.use(static(path.join(__dirname, '../public')))
 app.use(router.routes())
 app.use(logger.net)
 
-blog.push({
-  init: true
-})
+// blog.push({
+//  init: true
+// })
 
 app.listen(config.port)
 console.log(`Server running on port http://localhost:${config.port}`)

@@ -21,6 +21,9 @@ function cmd(command, cwd = '') {
     h.stderr.on('data', data => {
       logger.error(`command stderr: ${data}`)
     })
+    h.stderr.on('end',()=> {
+     resolve(1)
+    })
   })
 }
 

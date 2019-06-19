@@ -9,12 +9,8 @@ class Blog {
   async push(ctx, next) {
     const body = ctx.request.body
     let start = Date.now()
-    // 密钥验证失败
-    if (!ctx.init && body.secret !== config.secret) {
-      logger.warn(`secret valid Faild: ${ctx.secret}`)
-      ctx.body = 'secret valid Faild'
-      return next()
-    }
+    ctx.body = "ass we can"
+    ctx.status = 200
 
     // git pull
     await cmd('git pull', config.sourceCodeDir)
