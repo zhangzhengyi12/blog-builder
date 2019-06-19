@@ -7,10 +7,11 @@ const logger = require('../logger')
 class Blog {
   // 构建应用
   async push(ctx, next) {
+    const body = ctx.request.body
     let start = Date.now()
     // 密钥验证失败
-    if (!ctx.init && ctx.body.secret !== config.secret) {
-      ctx.warn(`secret valid Faild: ${ctx.secret}`)
+    if (!ctx.init && body.secret !== config.secret) {
+      logger.warn(`secret valid Faild: ${ctx.secret}`)
       ctx.body = 'secret valid Faild'
       return next()
     }
@@ -25,7 +26,12 @@ class Blog {
     await cmd(config.buildScript, config.sourceCodeDir)
 
     // move to public
-    await cmd(`cp -r ${config.sourceCodeDir}/${config.publicDir}/* public`, '')
+    await cmd(
+      `mkdir public && cp -r ${config.sourceCodeDir}/${
+        config.publicDir
+      }/* public`,
+      ''
+    )
 
     logger.info(`script end: ${Date.now() - start}ms`)
   }

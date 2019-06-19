@@ -5,9 +5,11 @@ const logger = require('./logger')
 const blog = require('./controller/blog')
 const static = require('koa-static')
 const path = require('path')
+const bodyparser = require('koa-bodyparser')
 
 const app = new koa()
 
+app.use(bodyparser())
 app.use(static(path.join(__dirname, '../public')))
 app.use(router.routes())
 app.use(logger.net)
