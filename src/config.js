@@ -10,7 +10,7 @@ module.exports = {
   // webhooks 密钥
   secret: 's90nmsl',
   // 构建前置脚本 工作目录 = 仓库文件夹
-  beforeScript: 'cnpm i',
+  beforeScript: 'npm i',
   // 构建后的脚本 工作目录 = 仓库文件夹
   buildScript: 'npm run build',
   // 构建完成后的静态文件目录 末尾不要加/
