@@ -23,7 +23,7 @@ class Blog {
 
     // move to public
     await cmd(
-      `mkdir public && cp -fr ${config.sourceCodeDir}/${
+      `mkdir public && \cp -fr ${config.sourceCodeDir}/${
         config.publicDir
       }/* public`,
       ''
