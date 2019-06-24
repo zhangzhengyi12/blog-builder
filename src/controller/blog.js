@@ -13,7 +13,7 @@ class Blog {
     ctx.status = 200
 
     // git pull
-    await spgit(config.sourceCodeDir).pull()
+    await spgit().pull()
 
     // before script
     await cmd(config.beforeScript, config.sourceCodeDir)
@@ -23,7 +23,7 @@ class Blog {
 
     // move to public
     await cmd(
-      `mkdir public && cp -r ${config.sourceCodeDir}/${
+      `mkdir public && cp -fr ${config.sourceCodeDir}/${
         config.publicDir
       }/* public`,
       ''
